@@ -162,6 +162,11 @@ export default function App() {
         <div className="pages">
           <section className="page story" id="inbjudan" ref={storyRef}>
             <div className="column">
+              <img
+                className="story-hero"
+                src={ART.painting}
+                alt="Inramad målning av ett par i ett sommarlandskap"
+              />
               <div className="open-env">
                 <img src={ART.open} alt="Öppnat kuvert med sigill" />
                 <p className="card-note">
