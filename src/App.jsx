@@ -131,13 +131,8 @@ export default function App() {
 
       <section className="page cover">
         <p className="eyebrow">The Heirloom Collection</p>
-        <img
-          className="cover-art"
-          src={ART.painting}
-          alt="Inramad målning av ett par i ett sommarlandskap"
-        />
         {opened ? (
-          <div className="envelope">
+          <div className="envelope" aria-hidden="true">
             <img src={ART.closed} alt="" />
           </div>
         ) : (
@@ -145,9 +140,9 @@ export default function App() {
             type="button"
             className={opening ? "envelope is-opening" : "envelope"}
             onClick={openInvitation}
-            aria-label="Öppna inbjudan"
+            aria-label="Klicka här för att öppna inbjudan"
           >
-            <img src={ART.closed} alt="" />
+            <img src={ART.closed} alt="Kuvert med sigill. Klicka här." />
           </button>
         )}
         <h1>
