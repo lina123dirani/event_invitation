@@ -4,12 +4,15 @@
   --paper-deep: #efe8da;
   --ink: #3c2f2f;
   --ink-soft: #5a4a42;
+  --ink-warm: #5c4634;
+  --ink-label: #6b5538;
   --gold: #8d7044;
   --field: #f3ead8;
   --field-line: rgba(150, 122, 78, 0.42);
   --button: #5c4634;
   --display: "Playfair Display", "Times New Roman", Times, serif;
   --serif: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  --sans: "Raleway", "Segoe UI", sans-serif;
   font-family: var(--serif);
   color: var(--ink);
   background-color: var(--paper);

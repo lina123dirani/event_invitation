@@ -274,55 +274,73 @@ button.envelope:focus-visible {
 }
 
 .details-sheet {
+  --details-ink: #4a3728;
+  --details-soft: #6b5744;
   position: relative;
-  width: min(460px, 100%);
+  width: min(480px, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  color: var(--details-ink);
 }
 
-.olives {
-  width: min(520px, 118%);
-  margin: 0 auto -6px;
+.details-hero {
+  position: relative;
+  width: min(560px, 118%);
+  margin: 0 auto 36px;
+}
+
+.details-hero .olives {
+  width: 100%;
+  margin: 0;
   display: block;
   pointer-events: none;
 }
 
 .details-title {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  width: min(72%, 16ch);
+  margin: 0;
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(30px, 5.6vw, 40px);
-  line-height: 1.15;
+  font-size: clamp(28px, 5.4vw, 38px);
+  line-height: 1.12;
   letter-spacing: 0.01em;
-  margin: 4px 0 48px;
-  color: var(--ink);
+  color: var(--details-ink);
+  text-align: center;
+  pointer-events: none;
 }
 
 .facts {
   display: flex;
   flex-direction: column;
-  gap: 42px;
-  margin: 0 0 40px;
+  gap: 44px;
+  margin: 0 0 42px;
   width: 100%;
 }
 
 .fact-label {
-  font-family: var(--display);
-  font-size: clamp(14px, 2.1vw, 16px);
+  font-family: var(--sans);
+  font-size: clamp(13px, 2vw, 15px);
   font-weight: 600;
-  letter-spacing: 0.22em;
-  text-indent: 0.22em;
-  color: var(--ink);
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  text-transform: uppercase;
+  color: var(--details-ink);
 }
 
 .fact-value {
-  margin-top: 10px;
-  font-family: var(--serif);
-  font-size: clamp(19px, 3.1vw, 23px);
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--ink);
+  margin-top: 12px;
+  font-family: var(--sans);
+  font-size: clamp(17px, 2.8vw, 20px);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  color: var(--details-soft);
 }
 
 .fact-value a {
@@ -331,28 +349,28 @@ button.envelope:focus-visible {
 }
 
 .welcome {
-  max-width: 30ch;
+  max-width: 32ch;
   margin: 0 auto;
   font-family: var(--serif);
   font-size: clamp(15px, 2.2vw, 17px);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--ink);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.55;
+  color: var(--details-soft);
 }
 
 .osa {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 48px;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 44px;
   width: 100%;
-  padding: 0 2px;
+  padding: 0;
 }
 
 .phone {
-  width: min(128px, 34%);
+  width: min(120px, 32%);
   height: auto;
   flex: none;
   display: block;
@@ -360,16 +378,17 @@ button.envelope:focus-visible {
 }
 
 .osa p {
-  font-family: var(--display);
-  font-size: clamp(13px, 2vw, 15px);
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.9vw, 14px);
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-indent: 0.14em;
-  line-height: 1.35;
-  color: var(--ink);
-  max-width: 13ch;
-  text-align: right;
-  margin-left: auto;
+  letter-spacing: 0.16em;
+  text-indent: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--details-ink);
+  max-width: 14ch;
+  text-align: left;
+  margin: 0;
 }
 
 .mirror-wrap {
@@ -608,35 +627,36 @@ button.envelope:focus-visible {
     padding: 8px 10px 7px;
   }
 
+  .details-hero {
+    width: min(440px, 112%);
+    margin-bottom: 28px;
+  }
+
   .details-title {
-    margin-bottom: 36px;
-    font-size: clamp(26px, 8vw, 32px);
+    font-size: clamp(24px, 7vw, 30px);
+    width: min(78%, 15ch);
   }
 
   .facts {
-    gap: 34px;
-  }
-
-  .olives {
-    width: min(420px, 112%);
+    gap: 36px;
   }
 
   .osa {
     gap: 12px;
     margin-top: 36px;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .phone {
-    width: min(110px, 36%);
+    width: min(108px, 34%);
   }
 
   .osa p {
-    letter-spacing: 0.1em;
-    text-indent: 0.1em;
-    font-size: 12px;
-    max-width: 12ch;
-    text-align: right;
+    letter-spacing: 0.12em;
+    text-indent: 0.12em;
+    font-size: 11px;
+    max-width: 13ch;
+    text-align: left;
   }
 }
 

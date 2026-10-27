@@ -212,8 +212,10 @@ export default function App() {
 
           <section className="page details" id="information">
             <div className="details-sheet">
-              <img className="olives" src={ART.olives} alt="" />
-              <h2 className="details-title">Utställningsinformation</h2>
+              <div className="details-hero">
+                <img className="olives" src={ART.olives} alt="" />
+                <h2 className="details-title">Utställningsinformation</h2>
+              </div>
               <div className="facts">
                 <div className="fact">
                   <p className="fact-label">Datum</p>
@@ -244,7 +246,11 @@ export default function App() {
               </p>
               <div className="osa">
                 <img className="phone" src={ART.phone} alt="" />
-                <p>OSA senast 14 november 2026</p>
+                <p>
+                  OSA senast
+                  <br />
+                  14 november 2026
+                </p>
               </div>
             </div>
           </section>
