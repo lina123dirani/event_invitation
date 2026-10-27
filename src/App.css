@@ -224,15 +224,15 @@ button.envelope:focus-visible {
 }
 
 .hotspot.listen {
-  left: 16%;
-  top: 9%;
-  width: 50%;
+  left: 18%;
+  top: 14%;
+  width: 48%;
   padding: 4px 2px;
-  transform: rotate(-28deg);
+  transform: rotate(-22deg);
   transform-origin: 50% 50%;
   color: #f7f1e6;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
-  font-size: clamp(10px, 1.45vw, 13px);
+  font-size: clamp(10px, 1.4vw, 12px);
 }
 
 .hotspot.listen.is-playing {
@@ -240,15 +240,15 @@ button.envelope:focus-visible {
 }
 
 .hotspot.goto-osa {
-  left: 8%;
-  top: 22%;
-  width: 48%;
+  left: 10%;
+  top: 24%;
+  width: 46%;
   padding: 4px 2px;
   color: #3c2f2f;
   text-shadow: none;
   font-style: normal;
   font-weight: 600;
-  font-size: clamp(12px, 1.65vw, 14px);
+  font-size: clamp(11px, 1.55vw, 13px);
 }
 
 .hotspot.goto-osa:hover,
@@ -259,9 +259,9 @@ button.envelope:focus-visible {
 }
 
 .hotspot.info {
-  left: 18%;
-  top: 58%;
-  width: 58%;
+  left: 20%;
+  top: 56%;
+  width: 56%;
   padding: 4px 2px;
   color: #3c2f2f;
   text-shadow: none;
@@ -269,7 +269,7 @@ button.envelope:focus-visible {
   text-underline-offset: 3px;
   font-style: normal;
   font-weight: 600;
-  font-size: clamp(11px, 1.45vw, 13px);
+  font-size: clamp(10px, 1.4vw, 12px);
 }
 
 .details-sheet {
