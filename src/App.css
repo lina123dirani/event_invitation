@@ -116,7 +116,8 @@ button.envelope:focus-visible {
 
 .details {
   justify-content: center;
-  padding: 48px 20px 56px;
+  padding: 40px 18px 52px;
+  overflow: visible;
 }
 
 .reply {
@@ -273,7 +274,8 @@ button.envelope:focus-visible {
 }
 
 .details-sheet {
-  width: min(420px, 100%);
+  position: relative;
+  width: min(460px, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -281,44 +283,45 @@ button.envelope:focus-visible {
 }
 
 .olives {
-  width: min(320px, 88%);
-  margin: 0 auto 2px;
+  width: min(520px, 118%);
+  margin: 0 auto -6px;
   display: block;
+  pointer-events: none;
 }
 
 .details-title {
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(28px, 5.2vw, 36px);
-  line-height: 1.2;
+  font-size: clamp(30px, 5.6vw, 40px);
+  line-height: 1.15;
   letter-spacing: 0.01em;
-  margin: 2px 0 40px;
+  margin: 4px 0 48px;
   color: var(--ink);
 }
 
 .facts {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  margin: 0 0 34px;
+  gap: 42px;
+  margin: 0 0 40px;
   width: 100%;
 }
 
 .fact-label {
   font-family: var(--display);
-  font-size: clamp(15px, 2.2vw, 17px);
+  font-size: clamp(14px, 2.1vw, 16px);
   font-weight: 600;
-  letter-spacing: 0.18em;
-  text-indent: 0.18em;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
   color: var(--ink);
 }
 
 .fact-value {
-  margin-top: 6px;
+  margin-top: 10px;
   font-family: var(--serif);
-  font-size: clamp(20px, 3.2vw, 24px);
+  font-size: clamp(19px, 3.1vw, 23px);
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.35;
   color: var(--ink);
 }
 
@@ -328,27 +331,28 @@ button.envelope:focus-visible {
 }
 
 .welcome {
-  max-width: 28ch;
+  max-width: 30ch;
   margin: 0 auto;
   font-family: var(--serif);
   font-size: clamp(15px, 2.2vw, 17px);
   font-weight: 500;
   font-style: italic;
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--ink);
 }
 
 .osa {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 36px;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 48px;
   width: 100%;
+  padding: 0 2px;
 }
 
 .phone {
-  width: 92px;
+  width: min(128px, 34%);
   height: auto;
   flex: none;
   display: block;
@@ -359,12 +363,13 @@ button.envelope:focus-visible {
   font-family: var(--display);
   font-size: clamp(13px, 2vw, 15px);
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-indent: 0.12em;
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
   line-height: 1.35;
   color: var(--ink);
-  max-width: 14ch;
-  text-align: left;
+  max-width: 13ch;
+  text-align: right;
+  margin-left: auto;
 }
 
 .mirror-wrap {
@@ -604,27 +609,34 @@ button.envelope:focus-visible {
   }
 
   .details-title {
-    margin-bottom: 28px;
+    margin-bottom: 36px;
+    font-size: clamp(26px, 8vw, 32px);
   }
 
   .facts {
-    gap: 24px;
+    gap: 34px;
+  }
+
+  .olives {
+    width: min(420px, 112%);
   }
 
   .osa {
-    gap: 10px;
-    margin-top: 28px;
+    gap: 12px;
+    margin-top: 36px;
+    justify-content: space-between;
   }
 
   .phone {
-    width: 78px;
+    width: min(110px, 36%);
   }
 
   .osa p {
-    letter-spacing: 0.08em;
-    text-indent: 0.08em;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
     font-size: 12px;
-    max-width: 13ch;
+    max-width: 12ch;
+    text-align: right;
   }
 }
 
