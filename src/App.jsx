@@ -193,7 +193,7 @@ export default function App() {
                   />
                   <button
                     type="button"
-                    className="hotspot rsvp"
+                    className="hotspot goto-osa"
                     onClick={() => scrollToId("osa")}
                   >
                     klicka för RSVP
@@ -261,7 +261,7 @@ export default function App() {
                     </p>
                   </div>
                 ) : (
-                  <form className="rsvp" onSubmit={submitRsvp} noValidate>
+                  <form className="rsvp-form" onSubmit={submitRsvp} noValidate>
                     <p className="form-title">Du är inbjuden</p>
                     <label className="field name-field">
                       <span className="field-label">Ditt namn</span>

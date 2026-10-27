@@ -174,11 +174,12 @@ button.envelope:focus-visible {
 
 .relics {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1fr 1fr;
   align-items: end;
-  gap: 0;
-  width: 108%;
-  margin-left: -4%;
+  gap: 4px;
+  width: 100%;
+  margin: 8px auto 0;
+  max-width: 520px;
 }
 
 .relic {
@@ -223,54 +224,52 @@ button.envelope:focus-visible {
 }
 
 .hotspot.listen {
-  left: 14%;
-  top: 7%;
-  width: 52%;
-  height: auto;
-  padding: 6px 4px;
-  transform: rotate(-30deg);
+  left: 16%;
+  top: 9%;
+  width: 50%;
+  padding: 4px 2px;
+  transform: rotate(-28deg);
   transform-origin: 50% 50%;
   color: #f7f1e6;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+  font-size: clamp(10px, 1.45vw, 13px);
 }
 
 .hotspot.listen.is-playing {
   color: #ffe9b8;
 }
 
-.hotspot.rsvp {
-  left: 6%;
-  top: 20%;
-  width: 50%;
-  height: auto;
-  padding: 8px 4px;
+.hotspot.goto-osa {
+  left: 8%;
+  top: 22%;
+  width: 48%;
+  padding: 4px 2px;
   color: #3c2f2f;
   text-shadow: none;
   font-style: normal;
   font-weight: 600;
-  font-size: clamp(12px, 1.7vw, 15px);
+  font-size: clamp(12px, 1.65vw, 14px);
 }
 
-.hotspot.rsvp:hover,
-.hotspot.rsvp:focus-visible,
+.hotspot.goto-osa:hover,
+.hotspot.goto-osa:focus-visible,
 .hotspot.info:hover,
 .hotspot.info:focus-visible {
   color: #1f1610;
 }
 
 .hotspot.info {
-  left: 16%;
-  top: 62%;
-  width: 62%;
-  height: auto;
-  padding: 8px 4px;
+  left: 18%;
+  top: 58%;
+  width: 58%;
+  padding: 4px 2px;
   color: #3c2f2f;
   text-shadow: none;
   text-decoration: underline;
   text-underline-offset: 3px;
   font-style: normal;
   font-weight: 600;
-  font-size: clamp(11px, 1.5vw, 14px);
+  font-size: clamp(11px, 1.45vw, 13px);
 }
 
 .details-sheet {
@@ -379,7 +378,7 @@ button.envelope:focus-visible {
   display: block;
 }
 
-.rsvp,
+.rsvp-form,
 .thanks {
   position: absolute;
   left: 30.5%;
@@ -585,7 +584,7 @@ button.envelope:focus-visible {
     width: min(360px, 100%);
   }
 
-  .rsvp,
+  .rsvp-form,
   .thanks {
     left: 29.5%;
     right: 25.5%;
