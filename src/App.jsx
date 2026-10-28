@@ -221,7 +221,7 @@ export default function App() {
                           */}
                           <path
                             id="listen-horn-arc"
-                            d="M 44 9 Q 50 7 55 10 Q 57 16 55 24"
+                            d="M 44 6 Q 50 4 55 7 Q 57 12 55 18"
                             fill="none"
                           />
                         </defs>
