@@ -182,8 +182,34 @@ export default function App() {
                     type="button"
                     className={playing ? "hotspot listen is-playing" : "hotspot listen"}
                     onClick={toggleListen}
+                    aria-label={playing ? "pausa" : "klicka för att lyssna"}
                   >
-                    {playing ? "pausa" : "klicka för att lyssna"}
+                    {playing ? (
+                      <span className="listen-flat">pausa</span>
+                    ) : (
+                      <svg
+                        className="listen-arc"
+                        viewBox="0 0 168 72"
+                        aria-hidden="true"
+                      >
+                        <defs>
+                          <path
+                            id="horn-arc"
+                            d="M 10 54 Q 84 6 158 50"
+                            fill="none"
+                          />
+                        </defs>
+                        <text fill="currentColor">
+                          <textPath
+                            href="#horn-arc"
+                            startOffset="50%"
+                            textAnchor="middle"
+                          >
+                            klicka för att lyssna
+                          </textPath>
+                        </text>
+                      </svg>
+                    )}
                   </button>
                 </div>
                 <div className="relic relic-still">
@@ -203,7 +229,8 @@ export default function App() {
                     className="hotspot info"
                     onClick={() => scrollToId("information")}
                   >
-                    klicka för mer information
+                    <span>klicka för mer</span>
+                    <span>information</span>
                   </button>
                 </div>
               </div>
