@@ -189,13 +189,19 @@ export default function App() {
                     ) : (
                       <svg
                         className="listen-arc"
-                        viewBox="0 0 220 100"
+                        viewBox="0 0 100 100"
+                        preserveAspectRatio="xMidYMid meet"
                         aria-hidden="true"
                       >
                         <defs>
+                          {/*
+                            Image 1 geometry (from gramophone.png hornish mask):
+                            across the top of the black mouth, then down the
+                            right — klicka high, lyssna lower, fully on-horn.
+                          */}
                           <path
                             id="listen-horn-arc"
-                            d="M 22 36 Q 110 74 198 34"
+                            d="M 44 9 Q 50 7 55 10 Q 57 16 55 24"
                             fill="none"
                           />
                         </defs>
