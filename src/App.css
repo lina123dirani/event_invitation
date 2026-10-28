@@ -301,8 +301,8 @@ button.envelope:focus-visible {
 
 .details-title {
   position: absolute;
-  left: 50%;
-  top: 42%;
+  left: 48%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 42%;
   max-width: 11.2em;
@@ -351,13 +351,13 @@ button.envelope:focus-visible {
 }
 
 .welcome {
-  max-width: 34ch;
+  max-width: 38ch;
   margin: 8px auto 0;
   font-family: var(--serif);
-  font-size: clamp(14px, 2.1vw, 16px);
+  font-size: clamp(17px, 2.5vw, 19px);
   font-weight: 400;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--details-soft);
 }
 
@@ -388,7 +388,7 @@ button.envelope:focus-visible {
   text-indent: 0.18em;
   line-height: 1.25;
   text-transform: uppercase;
-  color: var(--details-olive);
+  color: var(--details-ink);
   text-align: left;
   margin: 0;
   white-space: nowrap;

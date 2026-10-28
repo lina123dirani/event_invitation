@@ -242,6 +242,7 @@ export default function App() {
               </div>
               <p className="welcome">
                 Välkommen till en stämningsfull kväll bland konst, historia och
+                <br />
                 tidlösa berättelser.
               </p>
               <div className="osa">
