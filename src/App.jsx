@@ -364,6 +364,7 @@ export default function App() {
           {showOsa && (
             <section className="page reply" id="osa">
               <div className="column">
+                <p className="reply-lead">Vänligen svara</p>
                 <div className="mirror-wrap">
                   <img className="mirror" src={ART.mirror} alt="" />
                   {sent ? (
