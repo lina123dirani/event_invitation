@@ -241,9 +241,8 @@ export default function App() {
                 </div>
               </div>
               <p className="welcome">
-                Välkommen till en stämningsfull kväll bland konst, historia och
-                <br />
-                tidlösa berättelser.
+                <span>Välkommen till en stämningsfull kväll bland konst, historia och</span>
+                <span>tidlösa berättelser.</span>
               </p>
               <div className="osa">
                 <img className="phone" src={ART.phone} alt="" />

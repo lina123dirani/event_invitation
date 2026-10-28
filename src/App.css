@@ -301,7 +301,7 @@ button.envelope:focus-visible {
 
 .details-title {
   position: absolute;
-  left: 48%;
+  left: 45%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 42%;
@@ -351,7 +351,7 @@ button.envelope:focus-visible {
 }
 
 .welcome {
-  max-width: 38ch;
+  width: min(100%, 26em);
   margin: 8px auto 0;
   font-family: var(--serif);
   font-size: clamp(17px, 2.5vw, 19px);
@@ -359,6 +359,10 @@ button.envelope:focus-visible {
   font-style: italic;
   line-height: 1.45;
   color: var(--details-soft);
+}
+
+.welcome span {
+  display: block;
 }
 
 .osa {
@@ -636,8 +640,14 @@ button.envelope:focus-visible {
   }
 
   .details-title {
+    left: 44%;
     font-size: clamp(16px, 4.6vw, 20px);
     width: 44%;
+  }
+
+  .welcome {
+    width: min(100%, 22em);
+    font-size: clamp(15px, 3.8vw, 17px);
   }
 
   .facts {
