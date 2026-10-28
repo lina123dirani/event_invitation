@@ -225,16 +225,16 @@ button.envelope:focus-visible {
 }
 
 .hotspot.listen {
-  left: 30%;
-  top: 4%;
-  width: 44%;
-  height: 24%;
+  left: 27%;
+  top: 5%;
+  width: 50%;
+  height: 28%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  transform: scaleX(-1) rotate(42deg);
-  transform-origin: 45% 62%;
+  transform: rotate(52deg);
+  transform-origin: 92% 55%;
   color: #f7f1e6;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
   font-size: clamp(6px, 0.9vw, 8px);
@@ -245,7 +245,6 @@ button.envelope:focus-visible {
   height: 100%;
   overflow: visible;
   pointer-events: none;
-  transform: scaleX(-1);
 }
 
 .hotspot.listen .listen-arc text {
@@ -258,7 +257,6 @@ button.envelope:focus-visible {
 
 .hotspot.listen .listen-flat {
   display: block;
-  transform: scaleX(-1);
   font-size: clamp(7px, 1vw, 9px);
 }
 
