@@ -225,8 +225,8 @@ button.envelope:focus-visible {
 }
 
 .hotspot.listen {
-  left: 18%;
-  top: 14%;
+  left: 10%;
+  top: 22%;
   width: 50%;
   height: 28%;
   display: flex;
