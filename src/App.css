@@ -225,17 +225,19 @@ button.envelope:focus-visible {
 }
 
 .hotspot.listen {
-  left: 2%;
-  top: 1%;
-  width: 62%;
-  height: 30%;
+  left: 10%;
+  top: 12%;
+  width: 48%;
+  height: 22%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+  transform: rotate(-40deg);
+  transform-origin: 50% 55%;
   color: #f7f1e6;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  font-size: clamp(10px, 1.35vw, 12px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+  font-size: clamp(8px, 1.1vw, 10px);
 }
 
 .hotspot.listen .listen-arc {
@@ -247,15 +249,15 @@ button.envelope:focus-visible {
 
 .hotspot.listen .listen-arc text {
   font-family: var(--serif);
-  font-size: 13px;
+  font-size: 10px;
   font-style: italic;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.015em;
 }
 
 .hotspot.listen .listen-flat {
-  transform: rotate(-28deg);
   display: block;
+  font-size: clamp(9px, 1.2vw, 11px);
 }
 
 .hotspot.listen.is-playing {
@@ -263,17 +265,17 @@ button.envelope:focus-visible {
 }
 
 .hotspot.goto-osa {
-  left: 14%;
-  top: 28%;
-  width: 52%;
-  padding: 4px 2px;
+  left: 18%;
+  top: 30%;
+  width: 42%;
+  padding: 3px 2px;
   transform: rotate(-12deg);
   transform-origin: 50% 50%;
   color: #3c2f2f;
   text-shadow: none;
   font-style: normal;
   font-weight: 600;
-  font-size: clamp(11px, 1.55vw, 13px);
+  font-size: clamp(9px, 1.25vw, 11px);
 }
 
 .hotspot.goto-osa:hover,
@@ -284,9 +286,9 @@ button.envelope:focus-visible {
 }
 
 .hotspot.info {
-  left: 18%;
+  left: 8%;
   top: 68%;
-  width: 58%;
+  width: 56%;
   padding: 4px 2px;
   color: #3c2f2f;
   text-shadow: none;

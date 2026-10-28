@@ -195,7 +195,7 @@ export default function App() {
                         <defs>
                           <path
                             id="horn-arc"
-                            d="M 10 54 Q 84 6 158 50"
+                            d="M 12 24 Q 84 58 156 28"
                             fill="none"
                           />
                         </defs>
