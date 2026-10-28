@@ -225,16 +225,16 @@ button.envelope:focus-visible {
 }
 
 .hotspot.listen {
-  left: 28%;
-  top: 3%;
-  width: 46%;
+  left: 30%;
+  top: 4%;
+  width: 44%;
   height: 24%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  transform: scaleX(-1) rotate(34deg);
-  transform-origin: 48% 58%;
+  transform: scaleX(-1) rotate(42deg);
+  transform-origin: 45% 62%;
   color: #f7f1e6;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
   font-size: clamp(6px, 0.9vw, 8px);
@@ -268,7 +268,7 @@ button.envelope:focus-visible {
 
 .hotspot.goto-osa {
   left: 22%;
-  top: 26%;
+  top: 31%;
   width: 30%;
   padding: 2px 1px;
   transform: rotate(-16deg);
@@ -290,7 +290,7 @@ button.envelope:focus-visible {
 }
 
 .hotspot.info {
-  left: 28%;
+  left: 34%;
   top: 72%;
   width: 46%;
   padding: 3px 2px;
