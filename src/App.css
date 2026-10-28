@@ -225,41 +225,45 @@ button.envelope:focus-visible {
 }
 
 .hotspot.listen {
-  left: 18%;
-  top: 14%;
-  width: 54%;
-  height: 36%;
+  left: 10%;
+  top: 1%;
+  width: 66%;
+  height: 34%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  transform: rotate(-8deg);
-  transform-origin: 50% 50%;
-  color: #f7f1e6;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-  font-size: clamp(9px, 1.35vw, 12px);
+  overflow: hidden;
+  transform: rotate(-24deg);
+  transform-origin: 48% 52%;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+  font-size: clamp(10px, 1.5vw, 13px);
   font-weight: 700;
 }
 
 .hotspot.listen .listen-arc {
-  width: 100%;
-  height: 100%;
+  width: 108%;
+  height: 108%;
+  max-width: none;
   overflow: visible;
   pointer-events: none;
 }
 
 .hotspot.listen .listen-arc text {
-  font-family: var(--serif);
-  font-size: 11px;
+  font-family: var(--sans);
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
 .hotspot.listen .listen-flat {
   display: block;
-  font-size: clamp(9px, 1.35vw, 12px);
+  font-family: var(--sans);
+  font-size: clamp(10px, 1.5vw, 13px);
   font-weight: 700;
+  transform: rotate(24deg);
 }
 
 .hotspot.listen.is-playing {
@@ -642,6 +646,17 @@ button.envelope:focus-visible {
 
   .card-note {
     font-size: 7px;
+  }
+
+  .hotspot.listen {
+    left: 9%;
+    top: 1.5%;
+    width: 68%;
+    height: 33%;
+  }
+
+  .hotspot.listen .listen-arc text {
+    font-size: 12.5px;
   }
 }
 

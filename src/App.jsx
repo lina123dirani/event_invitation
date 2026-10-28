@@ -189,21 +189,21 @@ export default function App() {
                     ) : (
                       <svg
                         className="listen-arc"
-                        viewBox="0 0 168 72"
+                        viewBox="0 0 220 100"
                         aria-hidden="true"
                       >
                         <defs>
                           <path
-                            id="horn-arc"
-                            d="M 118 62 C 128 38, 118 14, 88 6 S 28 18, 12 42"
+                            id="listen-horn-arc"
+                            d="M 16 34 Q 110 78 204 32"
                             fill="none"
                           />
                         </defs>
                         <text fill="currentColor">
                           <textPath
-                            href="#horn-arc"
-                            startOffset="1%"
-                            textAnchor="start"
+                            href="#listen-horn-arc"
+                            startOffset="50%"
+                            textAnchor="middle"
                           >
                             klicka för att lyssna
                           </textPath>
