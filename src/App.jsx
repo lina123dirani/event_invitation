@@ -44,13 +44,23 @@ function scrollToId(id) {
   window.history.replaceState(null, "", `#${id}`)
 }
 
+function initialHash() {
+  return window.location.hash
+}
+
 export default function App() {
   const storyRef = useRef(null)
   const audioRef = useRef(null)
   const shouldScroll = useRef(false)
+  const pendingPage = useRef(null)
+  const hash = initialHash()
   const [opened, setOpened] = useState(
-    () => ["#inbjudan", "#information", "#osa"].includes(window.location.hash),
+    () => ["#inbjudan", "#information", "#osa"].includes(hash),
   )
+  const [showInformation, setShowInformation] = useState(
+    () => hash === "#information" || hash === "#osa",
+  )
+  const [showOsa, setShowOsa] = useState(() => hash === "#osa")
   const [opening, setOpening] = useState(false)
   const [playing, setPlaying] = useState(false)
   const [savedRsvp] = useState(loadRsvp)
@@ -79,6 +89,19 @@ export default function App() {
   }, [opened])
 
   useEffect(() => {
+    if (!pendingPage.current) return
+    const id = pendingPage.current
+    pendingPage.current = null
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    window.requestAnimationFrame(() => {
+      window.setTimeout(
+        () => scrollToId(id),
+        reduce ? 0 : 50,
+      )
+    })
+  }, [showInformation, showOsa])
+
+  useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
     const onEnded = () => setPlaying(false)
@@ -96,6 +119,20 @@ export default function App() {
       setOpening(false)
       window.history.replaceState(null, "", "#inbjudan")
     }, reduce ? 0 : 700)
+  }
+
+  function openPage(id) {
+    if (id === "information") {
+      pendingPage.current = "information"
+      setShowInformation(true)
+      if (document.getElementById("information")) scrollToId("information")
+      return
+    }
+    if (id === "osa") {
+      pendingPage.current = "osa"
+      setShowOsa(true)
+      if (document.getElementById("osa")) scrollToId("osa")
+    }
   }
 
   function toggleListen() {
@@ -246,14 +283,14 @@ export default function App() {
                   <button
                     type="button"
                     className="hotspot goto-osa"
-                    onClick={() => scrollToId("osa")}
+                    onClick={() => openPage("osa")}
                   >
                     klicka för RSVP
                   </button>
                   <button
                     type="button"
                     className="hotspot info"
-                    onClick={() => scrollToId("information")}
+                    onClick={() => openPage("information")}
                   >
                     <span>klicka för mer</span>
                     <span>information</span>
@@ -281,102 +318,106 @@ export default function App() {
             </div>
           </section>
 
-          <section className="page details" id="information">
-            <div className="details-sheet">
-              <div className="details-hero">
-                <img className="olives" src={ART.olives} alt="" />
-                <h2 className="details-title">Utställningsinformation</h2>
-              </div>
-              <div className="facts">
-                <div className="fact">
-                  <p className="fact-label">Datum</p>
-                  <p className="fact-value">Lördag 21 november 2026</p>
+          {showInformation && (
+            <section className="page details" id="information">
+              <div className="details-sheet">
+                <div className="details-hero">
+                  <img className="olives" src={ART.olives} alt="" />
+                  <h2 className="details-title">Utställningsinformation</h2>
                 </div>
-                <div className="fact">
-                  <p className="fact-label">Tid</p>
-                  <p className="fact-value">Kl. 17.00-20.00</p>
-                </div>
-                <div className="fact">
-                  <p className="fact-label">Plats</p>
-                  <p className="fact-value">
-                    <a
-                      href="https://maps.google.com/?q=Dicksonska+palatset,+Göteborg"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Dicksonska palatset
-                    </a>
-                    <br />
-                    Göteborg
-                  </p>
-                </div>
-              </div>
-              <p className="welcome">
-                <span>Välkommen till en stämningsfull kväll bland konst, historia och</span>
-                <span>tidlösa berättelser.</span>
-              </p>
-              <div className="osa">
-                <img className="phone" src={ART.phone} alt="" />
-                <p>OSA senast 14 november 2026</p>
-              </div>
-            </div>
-          </section>
-
-          <section className="page reply" id="osa">
-            <div className="column">
-              <div className="mirror-wrap">
-                <img className="mirror" src={ART.mirror} alt="" />
-                {sent ? (
-                  <div className="thanks" role="status">
-                    <strong>Tack</strong>
-                    <p>
-                      {sentName ? `${sentName}, ditt svar är mottaget.` : "Ditt svar är mottaget."}
+                <div className="facts">
+                  <div className="fact">
+                    <p className="fact-label">Datum</p>
+                    <p className="fact-value">Lördag 21 november 2026</p>
+                  </div>
+                  <div className="fact">
+                    <p className="fact-label">Tid</p>
+                    <p className="fact-value">Kl. 17.00-20.00</p>
+                  </div>
+                  <div className="fact">
+                    <p className="fact-label">Plats</p>
+                    <p className="fact-value">
+                      <a
+                        href="https://maps.google.com/?q=Dicksonska+palatset,+Göteborg"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Dicksonska palatset
+                      </a>
+                      <br />
+                      Göteborg
                     </p>
                   </div>
-                ) : (
-                  <form className="rsvp-form" onSubmit={submitRsvp} noValidate>
-                    <p className="form-title">Du är inbjuden</p>
-                    <label className="field name-field">
-                      <span className="field-label">Ditt namn</span>
-                      <input
-                        name="name"
-                        value={form.name}
-                        onChange={updateField}
-                        autoComplete="name"
-                        aria-invalid={Boolean(errors.name)}
-                      />
-                      {errors.name && <span className="error">{errors.name}</span>}
-                    </label>
-                    <fieldset className="attendance">
-                      <legend>Kommer du att delta i vår konstutställning?</legend>
-                      <button
-                        type="button"
-                        className={`choice${form.attendance === "yes" ? " is-selected" : ""}`}
-                        onClick={() => chooseAttendance("yes")}
-                        aria-pressed={form.attendance === "yes"}
-                      >
-                        Ja, jag kommer gärna
-                      </button>
-                      <button
-                        type="button"
-                        className={`choice${form.attendance === "no" ? " is-selected" : ""}`}
-                        onClick={() => chooseAttendance("no")}
-                        aria-pressed={form.attendance === "no"}
-                      >
-                        Tyvärr kan jag inte komma
-                      </button>
-                      {errors.attendance && (
-                        <span className="error">{errors.attendance}</span>
-                      )}
-                    </fieldset>
-                    <button className="submit" type="submit">
-                      OSA
-                    </button>
-                  </form>
-                )}
+                </div>
+                <p className="welcome">
+                  <span>Välkommen till en stämningsfull kväll bland konst, historia och</span>
+                  <span>tidlösa berättelser.</span>
+                </p>
+                <div className="osa">
+                  <img className="phone" src={ART.phone} alt="" />
+                  <p>OSA senast 14 november 2026</p>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
+
+          {showOsa && (
+            <section className="page reply" id="osa">
+              <div className="column">
+                <div className="mirror-wrap">
+                  <img className="mirror" src={ART.mirror} alt="" />
+                  {sent ? (
+                    <div className="thanks" role="status">
+                      <strong>Tack</strong>
+                      <p>
+                        {sentName ? `${sentName}, ditt svar är mottaget.` : "Ditt svar är mottaget."}
+                      </p>
+                    </div>
+                  ) : (
+                    <form className="rsvp-form" onSubmit={submitRsvp} noValidate>
+                      <p className="form-title">Du är inbjuden</p>
+                      <label className="field name-field">
+                        <span className="field-label">Ditt namn</span>
+                        <input
+                          name="name"
+                          value={form.name}
+                          onChange={updateField}
+                          autoComplete="name"
+                          aria-invalid={Boolean(errors.name)}
+                        />
+                        {errors.name && <span className="error">{errors.name}</span>}
+                      </label>
+                      <fieldset className="attendance">
+                        <legend>Kommer du att delta i vår konstutställning?</legend>
+                        <button
+                          type="button"
+                          className={`choice${form.attendance === "yes" ? " is-selected" : ""}`}
+                          onClick={() => chooseAttendance("yes")}
+                          aria-pressed={form.attendance === "yes"}
+                        >
+                          Ja, jag kommer gärna
+                        </button>
+                        <button
+                          type="button"
+                          className={`choice${form.attendance === "no" ? " is-selected" : ""}`}
+                          onClick={() => chooseAttendance("no")}
+                          aria-pressed={form.attendance === "no"}
+                        >
+                          Tyvärr kan jag inte komma
+                        </button>
+                        {errors.attendance && (
+                          <span className="error">{errors.attendance}</span>
+                        )}
+                      </fieldset>
+                      <button className="submit" type="submit">
+                        OSA
+                      </button>
+                    </form>
+                  )}
+                </div>
+              </div>
+            </section>
+          )}
         </div>
       )}
     </main>
