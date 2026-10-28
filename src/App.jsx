@@ -13,12 +13,26 @@ const ART = {
 }
 
 const STORAGE_KEY = "heirloom-rsvp"
+/** Event start: Lördag 21 november 2026, kl. 17.00 (Europe/Stockholm). */
+const EVENT_AT = new Date("2026-11-21T17:00:00+01:00")
 
 function loadRsvp() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null")
   } catch {
     return null
+  }
+}
+
+function getCountdown(now = new Date()) {
+  const ms = Math.max(0, EVENT_AT.getTime() - now.getTime())
+  const totalSec = Math.floor(ms / 1000)
+  return {
+    days: Math.floor(totalSec / 86400),
+    hours: Math.floor((totalSec % 86400) / 3600),
+    minutes: Math.floor((totalSec % 3600) / 60),
+    seconds: totalSec % 60,
+    done: ms === 0,
   }
 }
 
@@ -47,6 +61,12 @@ export default function App() {
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(Boolean(savedRsvp))
   const [sentName, setSentName] = useState(savedRsvp?.name || "")
+  const [countdown, setCountdown] = useState(getCountdown)
+
+  useEffect(() => {
+    const id = window.setInterval(() => setCountdown(getCountdown()), 1000)
+    return () => window.clearInterval(id)
+  }, [])
 
   useEffect(() => {
     if (!opened || !shouldScroll.current) return
@@ -238,6 +258,24 @@ export default function App() {
                     <span>klicka för mer</span>
                     <span>information</span>
                   </button>
+                </div>
+              </div>
+              <div className="countdown" aria-live="polite">
+                <p className="countdown-label">Nedräkning till utställningen</p>
+                <div className="countdown-grid">
+                  {[
+                    ["dagar", countdown.days],
+                    ["timmar", countdown.hours],
+                    ["minuter", countdown.minutes],
+                    ["sekunder", countdown.seconds],
+                  ].map(([label, value]) => (
+                    <div className="countdown-cell" key={label}>
+                      <span className="countdown-value">
+                        {String(value).padStart(2, "0")}
+                      </span>
+                      <span className="countdown-unit">{label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
