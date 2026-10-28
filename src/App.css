@@ -274,10 +274,11 @@ button.envelope:focus-visible {
 }
 
 .details-sheet {
-  --details-ink: #4a3728;
-  --details-soft: #6b5744;
+  --details-ink: #3f342c;
+  --details-olive: #5f6848;
+  --details-soft: #4a4038;
   position: relative;
-  width: min(480px, 100%);
+  width: min(440px, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -287,8 +288,8 @@ button.envelope:focus-visible {
 
 .details-hero {
   position: relative;
-  width: min(560px, 118%);
-  margin: 0 auto 36px;
+  width: min(520px, 112%);
+  margin: 0 auto 28px;
 }
 
 .details-hero .olives {
@@ -301,14 +302,15 @@ button.envelope:focus-visible {
 .details-title {
   position: absolute;
   left: 50%;
-  top: 52%;
+  top: 42%;
   transform: translate(-50%, -50%);
-  width: min(72%, 16ch);
+  width: 42%;
+  max-width: 11.2em;
   margin: 0;
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(28px, 5.4vw, 38px);
-  line-height: 1.12;
+  font-size: clamp(18px, 3.2vw, 23px);
+  line-height: 1.15;
   letter-spacing: 0.01em;
   color: var(--details-ink);
   text-align: center;
@@ -318,29 +320,29 @@ button.envelope:focus-visible {
 .facts {
   display: flex;
   flex-direction: column;
-  gap: 44px;
-  margin: 0 0 42px;
+  gap: 36px;
+  margin: 0 0 36px;
   width: 100%;
 }
 
 .fact-label {
   font-family: var(--sans);
-  font-size: clamp(13px, 2vw, 15px);
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-indent: 0.28em;
+  font-size: clamp(12px, 1.8vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
   text-transform: uppercase;
-  color: var(--details-ink);
+  color: var(--details-olive);
 }
 
 .fact-value {
-  margin-top: 12px;
-  font-family: var(--sans);
-  font-size: clamp(17px, 2.8vw, 20px);
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-  color: var(--details-soft);
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.8vw, 21px);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--details-ink);
 }
 
 .fact-value a {
@@ -349,13 +351,13 @@ button.envelope:focus-visible {
 }
 
 .welcome {
-  max-width: 32ch;
-  margin: 0 auto;
+  max-width: 34ch;
+  margin: 8px auto 0;
   font-family: var(--serif);
-  font-size: clamp(15px, 2.2vw, 17px);
+  font-size: clamp(14px, 2.1vw, 16px);
   font-weight: 400;
-  font-style: normal;
-  line-height: 1.55;
+  font-style: italic;
+  line-height: 1.5;
   color: var(--details-soft);
 }
 
@@ -363,14 +365,14 @@ button.envelope:focus-visible {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 16px;
-  margin-top: 44px;
+  gap: 14px;
+  margin-top: 40px;
   width: 100%;
   padding: 0;
 }
 
 .phone {
-  width: min(120px, 32%);
+  width: min(112px, 30%);
   height: auto;
   flex: none;
   display: block;
@@ -378,17 +380,18 @@ button.envelope:focus-visible {
 }
 
 .osa p {
+  flex: 1 1 auto;
   font-family: var(--sans);
-  font-size: clamp(12px, 1.9vw, 14px);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-indent: 0.16em;
-  line-height: 1.4;
+  font-size: clamp(11px, 1.65vw, 12.5px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
+  line-height: 1.25;
   text-transform: uppercase;
-  color: var(--details-ink);
-  max-width: 14ch;
+  color: var(--details-olive);
   text-align: left;
   margin: 0;
+  white-space: nowrap;
 }
 
 .mirror-wrap {
@@ -628,35 +631,35 @@ button.envelope:focus-visible {
   }
 
   .details-hero {
-    width: min(440px, 112%);
-    margin-bottom: 28px;
+    width: min(400px, 108%);
+    margin-bottom: 22px;
   }
 
   .details-title {
-    font-size: clamp(24px, 7vw, 30px);
-    width: min(78%, 15ch);
+    font-size: clamp(16px, 4.6vw, 20px);
+    width: 44%;
   }
 
   .facts {
-    gap: 36px;
+    gap: 30px;
   }
 
   .osa {
-    gap: 12px;
-    margin-top: 36px;
+    gap: 10px;
+    margin-top: 32px;
     justify-content: flex-start;
   }
 
   .phone {
-    width: min(108px, 34%);
+    width: min(96px, 28%);
   }
 
   .osa p {
     letter-spacing: 0.12em;
     text-indent: 0.12em;
-    font-size: 11px;
-    max-width: 13ch;
-    text-align: left;
+    font-size: 10px;
+    white-space: normal;
+    max-width: 16ch;
   }
 }
 

@@ -246,11 +246,7 @@ export default function App() {
               </p>
               <div className="osa">
                 <img className="phone" src={ART.phone} alt="" />
-                <p>
-                  OSA senast
-                  <br />
-                  14 november 2026
-                </p>
+                <p>OSA senast 14 november 2026</p>
               </div>
             </div>
           </section>
