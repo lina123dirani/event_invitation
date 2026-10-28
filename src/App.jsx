@@ -195,14 +195,14 @@ export default function App() {
                         <defs>
                           <path
                             id="horn-arc"
-                            d="M 8 20 Q 72 4 160 58"
+                            d="M 6 52 C 38 8, 58 2, 88 18 S 138 42, 162 56"
                             fill="none"
                           />
                         </defs>
                         <text fill="currentColor">
                           <textPath
                             href="#horn-arc"
-                            startOffset="4%"
+                            startOffset="2%"
                             textAnchor="start"
                           >
                             klicka för att lyssna
