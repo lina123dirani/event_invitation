@@ -52,15 +52,10 @@ export default function App() {
   const storyRef = useRef(null)
   const audioRef = useRef(null)
   const shouldScroll = useRef(false)
-  const pendingPage = useRef(null)
   const hash = initialHash()
   const [opened, setOpened] = useState(
     () => ["#inbjudan", "#information", "#osa"].includes(hash),
   )
-  const [showInformation, setShowInformation] = useState(
-    () => hash === "#information" || hash === "#osa",
-  )
-  const [showOsa, setShowOsa] = useState(() => hash === "#osa")
   const [opening, setOpening] = useState(false)
   const [playing, setPlaying] = useState(false)
   const [savedRsvp] = useState(loadRsvp)
@@ -89,19 +84,6 @@ export default function App() {
   }, [opened])
 
   useEffect(() => {
-    if (!pendingPage.current) return
-    const id = pendingPage.current
-    pendingPage.current = null
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    window.requestAnimationFrame(() => {
-      window.setTimeout(
-        () => scrollToId(id),
-        reduce ? 0 : 50,
-      )
-    })
-  }, [showInformation, showOsa])
-
-  useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
     const onEnded = () => setPlaying(false)
@@ -122,17 +104,7 @@ export default function App() {
   }
 
   function openPage(id) {
-    if (id === "information") {
-      pendingPage.current = "information"
-      setShowInformation(true)
-      if (document.getElementById("information")) scrollToId("information")
-      return
-    }
-    if (id === "osa") {
-      pendingPage.current = "osa"
-      setShowOsa(true)
-      if (document.getElementById("osa")) scrollToId("osa")
-    }
+    if (id === "information" || id === "osa") scrollToId(id)
   }
 
   function toggleListen() {
@@ -318,8 +290,7 @@ export default function App() {
             </div>
           </section>
 
-          {showInformation && (
-            <section className="page details" id="information">
+          <section className="page details" id="information">
               <div className="details-sheet">
                 <div className="details-hero">
                   <img className="olives" src={ART.olives} alt="" />
@@ -359,9 +330,7 @@ export default function App() {
                 </div>
               </div>
             </section>
-          )}
 
-          {showOsa && (
             <section className="page reply" id="osa">
               <div className="column">
                 <p className="reply-lead">Vänligen svara</p>
@@ -418,7 +387,6 @@ export default function App() {
                 </div>
               </div>
             </section>
-          )}
         </div>
       )}
     </main>
